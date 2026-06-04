@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Photobox</title>
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<body>
+
+  <h1>Photobox</h1>
+
+  <button id="charger_gallery">Charger galerie</button>
+  <section id="navigation">
+	  <button id="first">First</button><button id="prev">Prev</button><button id="next">Next</button><button id="last">Last</button>
+  </section>
+
+  <section id="la_galerie"></section>
+  <section id="la_photo"></section>
+  <section id="la_categorie"></section>
+  <h3>Commentaires</h3>
+  <ul id="les_commentaires"></ul>
+  <div id="lightbox">
+    <span id="closeLightbox">✕</span>
+    <img id="lightboxImage">
+  </div>
+
+  <script id="pictureTemplate" type="text/x-handlebars-template">
+    <div class="picture">
+      <h2>{{photo.titre}}</h2>
+      <img src="https://webetu.iutnc.univ-lorraine.fr{{photo.url.href}}" alt="{{photo.titre}}">
+      <p><strong>Description :</strong>{{photo.descr}}</p>
+      <p><strong>Format :</strong>{{photo.format}}</p>
+      <p><strong>Taille :</strong>{{photo.width}} x {{photo.height}}</p>
+    </div>
+  </script>
+
+  <script id="galleryTemplate" type="text/x-handlebars-template">
+    <div class="gallery">
+      {{#each photos}}
+        <img src="https://webetu.iutnc.univ-lorraine.fr{{photo.thumbnail.href}}" alt="{{photo.titre}}" data-photoid="{{photo.id}}">
+      {{/each}}
+
+    </div>
+  </script>
+
+</body>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src='js/index.js' defer></script>
+</html>
